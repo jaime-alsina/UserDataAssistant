@@ -1,0 +1,21 @@
+{
+  "Logging": {
+    "IncludeScopes": false,
+    "Debug": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "Console": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    }
+  },
+  "Email": {
+    "Email": "your@email.com",
+    "Password": "password",
+    "Host": "localhost",
+    "Port": "25"
+  }
+}
