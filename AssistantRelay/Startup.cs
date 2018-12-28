@@ -23,7 +23,9 @@ namespace AssistantRelay
 
             services.AddSingleton(Configuration);
             services.AddSingleton<IEmailService>(new EmailService(Configuration));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .AddWebApiConventions()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +43,12 @@ namespace AssistantRelay
             loggerFactory.AddFile($"{Configuration["App:LogFolder"]}/{Configuration["App:Name"]}" + "-{Date}.txt");
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapWebApiRoute(
+                    name: "default",
+                    template: "{controller=Assistant}/{action=Get}/{id?}");
+            });
         }
     }
 }
