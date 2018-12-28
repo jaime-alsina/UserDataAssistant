@@ -14,9 +14,7 @@ namespace Email.Service
         }
         public async Task SendEmail(string message)
         {
-            using (var client = new SmtpClient())
-            {
-                var credential = new NetworkCredential
+            using (var client = new SmtptorkCredential
                 {
                     UserName = _configuration["Email:Email"],
                     Password = _configuration["Email:Password"]

@@ -7,16 +7,22 @@ namespace Model.Response
 
     public class SimpleResponse
     {
-        [JsonProperty("textToSpeech")]
-        public string TextToSpeech { get; set; }
+        [JsonProperty("fulfillmentText")]
+        public string FulfillmentText { get; set; }
 
-        [JsonProperty("displayText")]
-        public string DisplayText { get; set; }
+        [JsonProperty("source")]
+        public string Source { get; set; }
 
-        public override string ToString()
-        {
-            return "{'simpleResponse': {'textToSpeech': " + this.TextToSpeech + " }}";
+        //[JsonProperty("textToSpeech")]
+        //public string TextToSpeech { get; set; }
 
-        }
+        //[JsonProperty("displayText")]
+        //public string DisplayText { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return "{'simpleResponse': {'textToSpeech': " + this.TextToSpeech + " }}";
+
+        //}
     }
 }

@@ -5,7 +5,11 @@ using Model.Request;
 using Model.Response;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AssistantRelay.Controllers
 {
@@ -36,7 +40,7 @@ namespace AssistantRelay.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<ActionResult<Response>> Post(AssistantRequest request)
+        public async Task<HttpResponseMessage> Post(AssistantRequest request)
         {
             try
             {
@@ -48,38 +52,52 @@ namespace AssistantRelay.Controllers
                 _logger.LogError(e, e.Message);
             }
 
-            var resp = new Response
+
+
+            var resp = new SimpleResponse()
             {
-                ConversationToken = request.OriginalDetectIntentRequest.Payload.Conversation.ConversationToken,
-                ExpectedInputs = new List<ExpectedInput>
-                {
-                    new ExpectedInput()
-                    {
-                        InputPrompt = new InputPrompt()
-                        {
-                            RichInitialPrompt = new RichInitialPrompt()
-                            {
-                                Items = new List<Item>()
-                                {
-                                    new Item()
-                                    {
-                                        SimpleResponse = new SimpleResponse()
-                                        {
-                                            TextToSpeech = request.QueryResult.FulfillmentText,
-                                            DisplayText = request.QueryResult.FulfillmentText
-                                        }
-                                    }
-                                },
-                                Suggestions = new List<object>()
-                            }
-                        },
-                        PossibleIntents = new List<PossibleIntent>(){ new PossibleIntent() { Intent = "actions.intent.TEXT" } }
-                    }
-                }
-                
+                Source = request.OriginalDetectIntentRequest.Source,
+                FulfillmentText = request.QueryResult.QueryText
             };
 
-            return resp;
+ 
+
+            var json = JsonConvert.SerializeObject(resp, Formatting.None);
+
+            var ret = new HttpResponseMessage(HttpStatusCode.OK);
+            ret.Content = new StringContent(json, Encoding.UTF8);
+       
+
+            //ConversationToken = request.OriginalDetectIntentRequest.Payload.Conversation.ConversationToken,
+            //ExpectedInputs = new List<ExpectedInput>
+            //{
+            //    new ExpectedInput()
+            //    {
+            //        InputPrompt = new InputPrompt()
+            //        {
+            //            RichInitialPrompt = new RichInitialPrompt()
+            //            {
+            //                Items = new List<Item>()
+            //                {
+            //                    new Item()
+            //                    {
+            //                        SimpleResponse = new SimpleResponse()
+            //                        {
+            //                            TextToSpeech = request.QueryResult.FulfillmentText,
+            //                            DisplayText = request.QueryResult.FulfillmentText
+            //                        }
+            //                    }
+            //                },
+            //                Suggestions = new List<object>()
+            //            }
+            //        },
+            //        PossibleIntents = new List<PossibleIntent>(){ new PossibleIntent() { Intent = "actions.intent.TEXT" } }
+            //    }
+            //}
+
+            // };
+
+            return ret;
         }
 
     }
