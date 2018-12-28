@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Model
+namespace Model.Request
 {
-    public partial class User
+    public class User
     {
         [JsonProperty("lastSeen")]
         public DateTimeOffset LastSeen { get; set; }

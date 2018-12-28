@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Model.Request;
+using Model.Response;
 
 namespace AssistantRelay.Controllers
 {
@@ -35,13 +38,13 @@ namespace AssistantRelay.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<ResponseBasic> Post(AssistantRequest request)
+        public async Task<Response> Post(AssistantRequest request)
         {
-            var response = new ResponseBasic
-            {
-                source = request.OriginalDetectIntentRequest.Source,
-                fulfillmentText = request.QueryResult.FulfillmentText
-            };
+            //var response = new ResponseBasic
+            //{
+            //    Source = request.OriginalDetectIntentRequest.Source,
+            //    FulfillmentText = request.QueryResult.FulfillmentText
+            //};
 
             try
             {
@@ -53,9 +56,38 @@ namespace AssistantRelay.Controllers
                 _logger.LogError(e, e.Message);
             }
 
-            return response;
+            var resp = new Response
+            {
+                ConversationToken = request.OriginalDetectIntentRequest.Payload.Conversation.ConversationToken,
+                ExpectedInputs = new List<ExpectedInput>
+                {
+                    new ExpectedInput()
+                    {
+                        InputPrompt = new InputPrompt()
+                        {
+                            RichInitialPrompt = new RichInitialPrompt()
+                            {
+                                Items = new List<Item>()
+                                {
+                                    new Item()
+                                    {
+                                        SimpleResponse = new SimpleResponse()
+                                        {
+                                            TextToSpeech = request.QueryResult.FulfillmentText,
+                                            DisplayText = request.QueryResult.FulfillmentText
+                                        }
+                                    }
+                                },
+                                Suggestions = new List<object>()
+                            }
+                        },
+                        PossibleIntents = new List<PossibleIntent>(){ new PossibleIntent() { Intent = "actions.intent.TEXT" } }
+                    }
+                }
+                
+            };
 
-
+            return resp;
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Model
+namespace Model.Request
 {
     public class AssistantRequest
     {
@@ -14,7 +14,8 @@ namespace Model
         [JsonProperty("originalDetectIntentRequest")]
         public OriginalDetectIntentRequest OriginalDetectIntentRequest { get; set; }
 
-        [JsonProperty("session")] public string Session { get; set; }
+        [JsonProperty("session")]
+        public string Session { get; set; }
 
         [JsonProperty("alternativeQueryResults")]
         public AlternativeQueryResult[] AlternativeQueryResults { get; set; }

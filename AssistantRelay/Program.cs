@@ -18,13 +18,5 @@ namespace AssistantRelay
 
             host.Run();
         }
-
-        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        //    WebHost.CreateDefaultBuilder(args)
-        //        .ConfigureAppConfiguration(builder =>
-        //        {
-        //            builder.AddIniFile("appsettings.json");
-        //        })
-        //        .UseStartup<Startup>();
     }
 }

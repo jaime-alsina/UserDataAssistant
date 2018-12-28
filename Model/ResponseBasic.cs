@@ -1,9 +1,13 @@
-﻿namespace Model
+﻿using Newtonsoft.Json;
+
+namespace Model
 {
     public class ResponseBasic
     {
-        public string fulfillmentText { get; set; }
+        [JsonProperty("fulfillmentText")]
+        public string FulfillmentText { get; set; }
 
-        public string source { get; set; }
+        [JsonProperty("source")]
+        public string Source { get; set; }
     }
 }
