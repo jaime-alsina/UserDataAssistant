@@ -11,7 +11,7 @@ namespace AssistantRelay
             var host = WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(builder =>
                 {
-                    builder.AddJsonFile("appsettings.json");
+                    builder.AddJsonFile("appsettings.json", false, true);
                 })
                 .UseStartup<Startup>()
                 .Build();

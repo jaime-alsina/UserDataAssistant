@@ -1,13 +1,11 @@
 ﻿using Email.Service;
 using Microsoft.AspNetCore.Mvc;
-using Model;
-using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Model.Request;
 using Model.Response;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AssistantRelay.Controllers
 {
@@ -38,14 +36,8 @@ namespace AssistantRelay.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<Response> Post(AssistantRequest request)
+        public async Task<ActionResult<Response>> Post(AssistantRequest request)
         {
-            //var response = new ResponseBasic
-            //{
-            //    Source = request.OriginalDetectIntentRequest.Source,
-            //    FulfillmentText = request.QueryResult.FulfillmentText
-            //};
-
             try
             {
                 _logger.LogInformation("About to send email");
