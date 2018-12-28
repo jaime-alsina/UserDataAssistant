@@ -1,4 +1,4 @@
-﻿using Email.Service;
+﻿using DisruptionWorks.Email.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace AssistantRelay
+namespace DisruptionWorks.AssistantRelay
 {
     public class Startup
     {

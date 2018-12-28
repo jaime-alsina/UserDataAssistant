@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace AssistantRelay
+namespace DisruptionWorks.AssistantRelay
 {
     public class Program
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Model.Request
+namespace DisruptionWorks.Model.Request
 {
     public class AssistantRequest
     {

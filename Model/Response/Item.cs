@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Model.Response
+namespace DisruptionWorks.Model.Response
 {
     public class Item
     {

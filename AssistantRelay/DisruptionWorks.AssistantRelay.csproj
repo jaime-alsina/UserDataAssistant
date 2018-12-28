@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>DisruptionWorks.AssistantRelay</AssemblyName>
+    <RootNamespace>DisruptionWorks.AssistantRelay</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj" />
-    <ProjectReference Include="..\SmtpClient\Email.Service.csproj" />
+    <ProjectReference Include="..\Model\DisruptionWorks.Model.csproj" />
+    <ProjectReference Include="..\SmtpClient\DisruptionWorks.Email.Service.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="http://json.schemastore.org/bowerrc" /></VisualStudio></ProjectExtensions>

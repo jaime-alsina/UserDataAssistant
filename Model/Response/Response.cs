@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace Model.Response
+namespace DisruptionWorks.Model.Response
 {
     public class Response
     {

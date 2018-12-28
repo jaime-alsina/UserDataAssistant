@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistantRelay", "AssistantRelay\AssistantRelay.csproj", "{6850854C-3214-4749-B56E-8A623F9A07F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisruptionWorks.AssistantRelay", "AssistantRelay\DisruptionWorks.AssistantRelay.csproj", "{6850854C-3214-4749-B56E-8A623F9A07F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email.Service", "SmtpClient\Email.Service.csproj", "{60BE26AA-7EA6-47F5-BAC7-95F252F2B630}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisruptionWorks.Email.Service", "SmtpClient\DisruptionWorks.Email.Service.csproj", "{60BE26AA-7EA6-47F5-BAC7-95F252F2B630}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{7F68292B-E9C5-4758-8272-DCCCBEFFE017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisruptionWorks.Model", "Model\DisruptionWorks.Model.csproj", "{7F68292B-E9C5-4758-8272-DCCCBEFFE017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
-namespace Email.Service
+namespace DisruptionWorks.Email.Service
 {
     public class EmailService : IEmailService
     {

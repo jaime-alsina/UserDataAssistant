@@ -1,18 +1,18 @@
-﻿using Email.Service;
+﻿using DisruptionWorks.Email.Service;
+using DisruptionWorks.Model.Request;
+using DisruptionWorks.Model.Response;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Model.Request;
-using Model.Response;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
-namespace AssistantRelay.Controllers
+namespace DisruptionWorks.AssistantRelay.Controllers
 {
     [Route("/")]
     //[Route("api/[controller]")]

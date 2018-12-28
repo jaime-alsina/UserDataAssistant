@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Email.Service
+namespace DisruptionWorks.Email.Service
 {
     public interface IEmailService
     {
